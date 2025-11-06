@@ -1,0 +1,19 @@
+h1 Sök efter ett djur
+
+form action="/animals" method="get"
+    input name="a" placeholder="Sök på ett djur!" type="text"
+    input type="submit" value="Sök!"
+br
+hr
+
+
+h1 Alla djur
+
+- @datadjur.each do |animal|
+    h2 
+        a href="/animals/#{animal["id"]}/edit" #{animal["name"]}
+    p Det finns #{animal["amount"]} st
+
+    form action="/animals/#{animal["id"]}/delete" method="post"
+        input type="submit" value="Delete💧"
+    hr
